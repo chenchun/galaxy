@@ -78,7 +78,7 @@ func (p *FloatingIPPlugin) loop(stop chan struct{}) {
 				} else {
 					go func() {
 						// backoff time if required
-						time.Sleep(300 * time.Millisecond * time.Duration(event.retryTimes))
+						time.Sleep(100 * time.Millisecond * time.Duration(event.retryTimes))
 						p.unreleased <- event
 					}()
 				}

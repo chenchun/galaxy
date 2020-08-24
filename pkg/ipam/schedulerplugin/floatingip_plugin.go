@@ -112,7 +112,7 @@ func (p *FloatingIPPlugin) Run(stop chan struct{}) {
 		}
 		p.syncPodIPsIntoDB()
 	}, time.Duration(p.conf.ResyncInterval)*time.Minute, stop)
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 50; i++ {
 		go p.loop(stop)
 	}
 }
